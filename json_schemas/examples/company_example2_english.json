@@ -1,0 +1,68 @@
+{
+  "cnpj": "98765432109876",
+  "legal_name": "Sustainable Agriculture Innovations S.A.",
+  "trade_name": "EcoFarm",
+  "state_registration": "123456789",
+  "municipal_registration": "987654321",
+  "foundation_date": "22/04/2010",
+  "company_size": "Small Business",
+  "main_activity": {
+    "code": "01.61-0-03",
+    "description": "Service activities related to agriculture"
+  },
+  "secondary_activities": [
+    {
+      "code": "01.41-5-01",
+      "description": "Production of temporary crops"
+    },
+    {
+      "code": "46.23-1-99",
+      "description": "Wholesale of agricultural products not previously specified"
+    }
+  ],
+  "address": {
+    "street": "Rural",
+    "number": "500",
+    "additional_info": "Km 5",
+    "postal_code": "13560970",
+    "street_type": "Road",
+    "neighborhood": "Rural Zone",
+    "city": "São Carlos",
+    "state": "SP",
+    "country": "Brazil"
+  },
+  "contact": {
+    "phone": "1633334444",
+    "email": "info@ecofarm-example.com",
+    "website": "https://www.ecofarm-example.com"
+  },
+  "legal_representative": {
+    "name": "Maria Oliveira",
+    "cpf": "12345678901",
+    "position": "CEO"
+  },
+  "partners": [
+    {
+      "name": "Maria Oliveira",
+      "cpf": "12345678901",
+      "qualification": "Managing Partner",
+      "entry_date": "22/04/2010",
+      "capital_percentage": 60
+    },
+    {
+      "name": "João Santos",
+      "cpf": "98765432109",
+      "qualification": "Partner",
+      "entry_date": "22/04/2010",
+      "capital_percentage": 40
+    }
+  ],
+  "registration_status": "Active",
+  "tax_regime": "Simplified National",
+  "social_capital": 200000,
+  "institution_relationships": {
+    "types": ["supplier", "partner"]
+  },
+  "created_at": "22/04/2010",
+  "updated_at": "15/03/2023"
+}

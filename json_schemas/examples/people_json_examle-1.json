@@ -1,0 +1,70 @@
+{
+    "cpf": "12345678901",
+    "first_name": "João",
+    "last_name": "Silva",
+    "full_name": "João Carlos Silva",
+    "birthday": "15/05/1985",
+    "contacts": {
+      "phones": [
+        {
+          "number": "1133334444",
+          "type": "residential",
+          "is_whatsapp": false
+        }
+      ],
+      "cellphones": [
+        {
+          "number": "11987654321",
+          "is_whatsapp": true,
+          "is_primary": true
+        }
+      ],
+      "emails": [
+        {
+          "address": "joao.silva@email.com",
+          "is_primary": true
+        }
+      ]
+    },
+    "endereco": {
+      "street_name": "Paulista",
+      "number": "1000",
+      "cep": "01310100",
+      "tipo_logradouro": "Avenida",
+      "neighborhood": "Bela Vista",
+      "zipcode": "01310100",
+      "state": "SP",
+      "country": "Brazil"
+    },
+    "membership_data": {
+      "mother": {
+        "name": "Maria Silva",
+        "cpf": "98765432101",
+        "contacts": {
+          "cellphone": "11987651234",
+          "email": "maria.silva@email.com"
+        }
+      },
+      "responsable_person": {
+        "name": "Maria Silva",
+        "kinship_degree": "mother",
+        "contacts": {
+          "cellphone": "11987651234"
+        }
+      }
+    },
+    "institution_relationships": {
+      "types": ["basic_food", "soup"]
+    },
+    "emergency_contacts": [
+      {
+        "name": "Carlos Silva",
+        "relationship": "brother",
+        "cellphone": "11999998888",
+        "email": "carlos.silva@email.com"
+      }
+    ],
+    "created_at": "01/06/2023",
+    "updated_at": "01/06/2023"
+  }
+  

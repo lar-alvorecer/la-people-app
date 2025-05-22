@@ -1,0 +1,225 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Company Schema",
+    "type": "object",
+    "required": ["cnpj", "legal_name", "trade_name", "address", "created_at"],
+    "properties": {
+      "id": {
+        "description": "Automatic MongoDB ID",
+        "type": "string"
+      },
+      "cnpj": {
+        "type": "string",
+        "description": "Brazilian CNPJ - only numbers with valid verification digits",
+        "pattern": "^\\d{14}$",
+        "minLength": 14,
+        "maxLength": 14
+      },
+      "legal_name": {
+        "type": "string",
+        "description": "Legal name of the company",
+        "minLength": 3
+      },
+      "trade_name": {
+        "type": "string",
+        "description": "Trade name of the company",
+        "minLength": 1
+      },
+      "state_registration": {
+        "type": "string",
+        "description": "State registration number"
+      },
+      "municipal_registration": {
+        "type": "string",
+        "description": "Municipal registration number"
+      },
+      "foundation_date": {
+        "type": "string",
+        "description": "Foundation date in dd/mm/yyyy format",
+        "pattern": "^(0[1-9]|[12][0-9]|3[01])\\/(0[1-9]|1[0-2])\\/\\d{4}$"
+      },
+      "company_size": {
+        "type": "string",
+        "description": "Company size",
+        "enum": ["Individual Microentrepreneur", "Microenterprise", "Small Business", "Medium Business", "Large Business"]
+      },
+      "main_activity": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string",
+            "description": "CNAE code (National Classification of Economic Activities)"
+          },
+          "description": {
+            "type": "string",
+            "description": "Description of the main activity"
+          }
+        }
+      },
+      "secondary_activities": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "code": {
+              "type": "string",
+              "description": "CNAE code"
+            },
+            "description": {
+              "type": "string",
+              "description": "Description of the secondary activity"
+            }
+          }
+        }
+      },
+      "address": {
+        "type": "object",
+        "properties": {
+          "street": {
+            "type": "string"
+          },
+          "number": {
+            "type": ["string", "number"]
+          },
+          "additional_info": {
+            "type": "string"
+          },
+          "postal_code": {
+            "type": "string",
+            "pattern": "^\\d{8}$",
+            "description": "Brazilian CEP (postal code) - 8 digits without hyphen"
+          },
+          "street_type": {
+            "type": "string",
+            "description": "Type of address (Street, Avenue, Square, etc.)",
+            "enum": ["Street", "Avenue", "Square", "Boulevard", "Road", "Highway", "Lane", "Alley", "Other"]
+          },
+          "neighborhood": {
+            "type": "string"
+          },
+          "city": {
+            "type": "string"
+          },
+          "state": {
+            "type": "string",
+            "description": "Brazilian state abbreviation",
+            "enum": ["AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SC", "SP", "SE", "TO"]
+          },
+          "country": {
+            "type": "string",
+            "default": "Brazil"
+          }
+        },
+        "required": ["street", "number", "postal_code", "neighborhood", "city", "state"]
+      },
+      "contact": {
+        "type": "object",
+        "properties": {
+          "phone": {
+            "type": "string",
+            "description": "Phone number with area code",
+            "pattern": "^\\d{10,11}$"
+          },
+          "email": {
+            "type": "string",
+            "format": "email"
+          },
+          "website": {
+            "type": "string",
+            "format": "uri"
+          }
+        }
+      },
+      "legal_representative": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "cpf": {
+            "type": "string",
+            "pattern": "^\\d{11}$",
+            "description": "CPF of the legal representative"
+          },
+          "position": {
+            "type": "string",
+            "description": "Position in the company"
+          }
+        }
+      },
+      "partners": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "cpf": {
+              "type": "string",
+              "pattern": "^\\d{11}$"
+            },
+            "qualification": {
+              "type": "string",
+              "description": "Partner qualification"
+            },
+            "entry_date": {
+              "type": "string",
+              "description": "Entry date in dd/mm/yyyy format",
+              "pattern": "^(0[1-9]|[12][0-9]|3[01])\\/(0[1-9]|1[0-2])\\/\\d{4}$"
+            },
+            "capital_percentage": {
+              "type": "number",
+              "description": "Percentage of capital ownership",
+              "minimum": 0,
+              "maximum": 100
+            }
+          }
+        }
+      },
+      "registration_status": {
+        "type": "string",
+        "enum": ["Active", "Suspended", "Unfit", "Closed", "Null"]
+      },
+      "tax_regime": {
+        "type": "string",
+        "enum": ["Simplified National", "Presumed Profit", "Real Profit"]
+      },
+      "social_capital": {
+        "type": "number",
+        "description": "Company's capital in BRL",
+        "minimum": 0
+      },
+      "institution_relationships": {
+        "type": "object",
+        "properties": {
+          "types": {
+            "type": "array",
+            "description": "Types of relationships with the institution",
+            "items": {
+              "type": "string",
+              "enum": [
+                "supplier", 
+                "partner", 
+                "donor", 
+                "service_provider",
+                "client"
+              ]
+            }
+          }
+        }
+      },
+      "created_at": {
+        "type": "string",
+        "description": "Creation date in dd/mm/yyyy format",
+        "pattern": "^(0[1-9]|[12][0-9]|3[01])\\/(0[1-9]|1[0-2])\\/\\d{4}$"
+      },
+      "updated_at": {
+        "type": "string",
+        "description": "Last update date in dd/mm/yyyy format",
+        "pattern": "^(0[1-9]|[12][0-9]|3[01])\\/(0[1-9]|1[0-2])\\/\\d{4}$"
+      }
+    },
+    "additionalProperties": false
+  }
+  

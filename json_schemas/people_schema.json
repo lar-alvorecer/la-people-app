@@ -1,0 +1,348 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Person Schema",
+  "type": "object",
+  "required": ["cpf", "first_name", "last_name", "full_name", "birthday", "endereco", "created_at"],
+  "properties": {
+    "id": {
+      "description": "Automatic MongoDB ID",
+      "type": "string"
+    },
+    "cpf": {
+      "type": "string",
+      "description": "Brazilian CPF - only numbers",
+      "pattern": "^\\d{11}$",
+      "minLength": 11,
+      "maxLength": 11
+    },
+    "rg": {
+      "type": "object",
+      "properties": {
+        "number": {
+          "type": "string",
+          "description": "RG number - alphanumeric with possible special characters",
+          "pattern": "^[a-zA-Z0-9\\-\\.]+$"
+        },
+        "issued_by": {
+          "type": "string",
+          "description": "Issuing authority"
+        },
+        "issue_date": {
+          "type": "string",
+          "description": "Date of issue in dd/mm/yyyy format",
+          "pattern": "^(0[1-9]|[12][0-9]|3[01])\\/(0[1-9]|1[0-2])\\/\\d{4}$"
+        }
+      }
+    },
+    "first_name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "last_name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "full_name": {
+      "type": "string",
+      "minLength": 3
+    },
+    "birthday": {
+      "type": "string",
+      "description": "Date in dd/mm/yyyy format",
+      "pattern": "^(0[1-9]|[12][0-9]|3[01])\\/(0[1-9]|1[0-2])\\/\\d{4}$"
+    },
+    "contacts": {
+      "type": "object",
+      "properties": {
+        "phones": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "number": {
+                "type": "string",
+                "description": "Phone number with DDD",
+                "pattern": "^\\d{10,11}$"
+              },
+              "type": {
+                "type": "string",
+                "enum": ["residential", "commercial", "other"]
+              },
+              "is_whatsapp": {
+                "type": "boolean",
+                "default": false
+              }
+            },
+            "required": ["number"]
+          }
+        },
+        "cellphones": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "number": {
+                "type": "string",
+                "description": "Cellphone number with DDD",
+                "pattern": "^\\d{11}$"
+              },
+              "is_whatsapp": {
+                "type": "boolean",
+                "default": false
+              },
+              "is_primary": {
+                "type": "boolean",
+                "default": false
+              }
+            },
+            "required": ["number"]
+          }
+        },
+        "emails": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "address": {
+                "type": "string",
+                "format": "email"
+              },
+              "is_primary": {
+                "type": "boolean",
+                "default": false
+              }
+            },
+            "required": ["address"]
+          }
+        }
+      }
+    },
+    "endereco": {
+      "type": "object",
+      "properties": {
+        "street_name": {
+          "type": "string"
+        },
+        "number": {
+          "type": ["string", "number"]
+        },
+        "cep": {
+          "type": "string",
+          "pattern": "^\\d{8}$",
+          "description": "Brazilian CEP (postal code) - 8 digits without hyphen"
+        },
+        "tipo_logradouro": {
+          "type": "string",
+          "description": "Type of address (Rua, Avenida, Praça, etc.)",
+          "enum": ["Rua", "Avenida", "Praça", "Alameda", "Estrada", "Rodovia", "Travessa", "Viela", "Outro"]
+        },
+        "neighborhood": {
+          "type": "string"
+        },
+        "zipcode": {
+          "type": "string",
+          "pattern": "^\\d{8}$",
+          "description": "Brazilian CEP (postal code) - 8 digits without hyphen"
+        },
+        "state": {
+          "type": "string",
+          "description": "Brazilian state abbreviation",
+          "enum": ["AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SC", "SP", "SE", "TO"]
+        },
+        "country": {
+          "type": "string",
+          "enum": ["Brazil"]
+        }
+      },
+      "required": ["street_name", "number", "zipcode", "state", "country"]
+    },
+    "membership_data": {
+      "type": "object",
+      "properties": {
+        "mother": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            },
+            "cpf": {
+              "type": "string",
+              "pattern": "^\\d{11}$"
+            },
+            "contacts": {
+              "type": "object",
+              "properties": {
+                "phone": {
+                  "type": "string",
+                  "pattern": "^\\d{10,11}$"
+                },
+                "cellphone": {
+                  "type": "string",
+                  "pattern": "^\\d{11}$"
+                },
+                "email": {
+                  "type": "string",
+                  "format": "email"
+                }
+              }
+            }
+          }
+        },
+        "father": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            },
+            "cpf": {
+              "type": "string",
+              "pattern": "^\\d{11}$"
+            },
+            "contacts": {
+              "type": "object",
+              "properties": {
+                "phone": {
+                  "type": "string",
+                  "pattern": "^\\d{10,11}$"
+                },
+                "cellphone": {
+                  "type": "string",
+                  "pattern": "^\\d{11}$"
+                },
+                "email": {
+                  "type": "string",
+                  "format": "email"
+                }
+              }
+            }
+          }
+        },
+        "responsable_person": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            },
+            "cpf": {
+              "type": "string",
+              "pattern": "^\\d{11}$"
+            },
+            "kinship_degree": {
+              "type": "string",
+              "description": "Relationship to the person"
+            },
+            "contacts": {
+              "type": "object",
+              "properties": {
+                "phone": {
+                  "type": "string",
+                  "pattern": "^\\d{10,11}$"
+                },
+                "cellphone": {
+                  "type": "string",
+                  "pattern": "^\\d{11}$"
+                },
+                "email": {
+                  "type": "string",
+                  "format": "email"
+                }
+              },
+              "required": ["cellphone"]
+            }
+          },
+          "required": ["name", "contacts"]
+        }
+      }
+    },
+    "beneficiary": {
+      "type": "object",
+      "properties": {
+        "card_number": {
+          "type": "string",
+          "description": "Alphanumeric card number - 10 digits",
+          "pattern": "^[a-zA-Z0-9]{10}$",
+          "minLength": 10,
+          "maxLength": 10
+        },
+        "register_date": {
+          "type": "string",
+          "description": "Registration date in dd/mm/yyyy format",
+          "pattern": "^(0[1-9]|[12][0-9]|3[01])\\/(0[1-9]|1[0-2])\\/\\d{4}$"
+        }
+      }
+    },
+    "institution_relationships": {
+      "type": "object",
+      "properties": {
+        "types": {
+          "type": "array",
+          "description": "Types of relationships with the institution",
+          "items": {
+            "type": "string",
+            "enum": [
+              "student_creche", 
+              "student_cecor", 
+              "basic_food", 
+              "medical", 
+              "oftalm", 
+              "odont", 
+              "psycology", 
+              "psychology", 
+              "psychiatry", 
+              "soup", 
+              "bazaar"
+            ]
+          }
+        }
+      }
+    },
+    "emergency_contacts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "relationship": {
+            "type": "string"
+          },
+          "phone": {
+            "type": "string",
+            "pattern": "^\\d{10,11}$"
+          },
+          "cellphone": {
+            "type": "string",
+            "pattern": "^\\d{11}$"
+          },
+          "email": {
+            "type": "string",
+            "format": "email"
+          }
+        },
+        "required": ["name", "cellphone"]
+      }
+    },
+    "created_at": {
+      "type": "string",
+      "description": "Creation date in dd/mm/yyyy format",
+      "pattern": "^(0[1-9]|[12][0-9]|3[01])\\/(0[1-9]|1[0-2])\\/\\d{4}$"
+    },
+    "updated_at": {
+      "type": "string",
+      "description": "Last update date in dd/mm/yyyy format",
+      "pattern": "^(0[1-9]|[12][0-9]|3[01])\\/(0[1-9]|1[0-2])\\/\\d{4}$"
+    }
+  },
+  "additionalProperties": false
+}
+

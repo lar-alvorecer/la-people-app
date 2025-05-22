@@ -1,0 +1,97 @@
+{
+    "cpf": "98765432109",
+    "rg": {
+      "number": "25.478.632-1",
+      "issued_by": "SSP",
+      "issue_date": "10/03/2010"
+    },
+    "first_name": "Ana",
+    "last_name": "Oliveira",
+    "full_name": "Ana Luiza Oliveira",
+    "birthday": "22/11/1990",
+    "contacts": {
+      "cellphones": [
+        {
+          "number": "21987654321",
+          "is_whatsapp": true,
+          "is_primary": true
+        },
+        {
+          "number": "21912345678",
+          "is_whatsapp": false,
+          "is_primary": false
+        }
+      ],
+      "emails": [
+        {
+          "address": "ana.oliveira@email.com",
+          "is_primary": true
+        },
+        {
+          "address": "ana.work@company.com",
+          "is_primary": false
+        }
+      ]
+    },
+    "endereco": {
+      "street_name": "das Flores",
+      "number": "123",
+      "cep": "04567890",
+      "tipo_logradouro": "Rua",
+      "neighborhood": "Jardim Europa",
+      "zipcode": "04567890",
+      "state": "RJ",
+      "country": "Brazil"
+    },
+    "membership_data": {
+      "mother": {
+        "id": "60a2e7f3b9c1a23d4e5f6a7b",
+        "name": "Carla Oliveira",
+        "cpf": "45678912300",
+        "contacts": {
+          "phone": "2133334444",
+          "cellphone": "21987651234",
+          "email": "carla.oliveira@email.com"
+        }
+      },
+      "father": {
+        "id": "60a2e7f3b9c1a23d4e5f6a7c",
+        "name": "Roberto Oliveira",
+        "cpf": "78912345600",
+        "contacts": {
+          "cellphone": "21999887766"
+        }
+      },
+      "responsable_person": {
+        "name": "Carla Oliveira",
+        "kinship_degree": "mother",
+        "contacts": {
+          "cellphone": "21987651234"
+        }
+      }
+    },
+    "beneficiary": {
+      "card_number": "AB12345678",
+      "register_date": "15/01/2022"
+    },
+    "institution_relationships": {
+      "types": ["medical", "odont", "psychology"]
+    },
+    "emergency_contacts": [
+      {
+        "name": "Roberto Oliveira",
+        "relationship": "father",
+        "cellphone": "21999887766"
+      },
+      {
+        "name": "Marcos Oliveira",
+        "relationship": "uncle",
+        "cellphone": "21988776655",
+        "phone": "2133445566",
+        "email": "marcos.oliveira@email.com"
+      }
+    ],
+    "created_at": "15/01/2022",
+    "updated_at": "20/05/2023"
+  }
+  

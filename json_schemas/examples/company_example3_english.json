@@ -1,0 +1,40 @@
+{
+  "cnpj": "45678912345678",
+  "legal_name": "Community Health Services Ltda ME",
+  "trade_name": "Health & Care",
+  "state_registration": "EXEMPT",
+  "foundation_date": "10/08/2019",
+  "company_size": "Microenterprise",
+  "main_activity": {
+    "code": "86.50-0-03",
+    "description": "Activities of health professionals, except doctors and dentists"
+  },
+  "address": {
+    "street": "Health",
+    "number": "123",
+    "additional_info": "Suite 45",
+    "postal_code": "30130110",
+    "street_type": "Street",
+    "neighborhood": "Center",
+    "city": "Belo Horizonte",
+    "state": "MG",
+    "country": "Brazil"
+  },
+  "contact": {
+    "phone": "3132223333",
+    "email": "contact@healthandcare-example.com"
+  },
+  "legal_representative": {
+    "name": "Carlos Mendes",
+    "cpf": "45678912345",
+    "position": "Administrator"
+  },
+  "registration_status": "Active",
+  "tax_regime": "Simplified National",
+  "social_capital": 50000,
+  "institution_relationships": {
+    "types": ["service_provider", "partner", "donor"]
+  },
+  "created_at": "10/08/2019",
+  "updated_at": "10/08/2019"
+}

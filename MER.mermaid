@@ -1,14 +1,8 @@
-# la-people-app
-
-```mermaid
 erDiagram
     PEOPLE {
         int id PK
         string name
-        string mother_name
-        string father_name
         string cpf
-        String rg
         date birth_date
         string gender
         string address
@@ -24,8 +18,9 @@ erDiagram
         int people_id FK
         string username
         string password_hash
-        string sys_role
+        string role
         boolean is_active
+        datetime last_login
         datetime created_at
         datetime updated_at
     }
@@ -76,7 +71,6 @@ erDiagram
     BENEFICIARY {
         int id PK
         int people_id FK
-        int card_number
         date enrollment_date
         string needs
         string program
@@ -88,7 +82,8 @@ erDiagram
         int id PK
         int people_id FK
         date enrollment_date
-        string additional_info
+        string grade
+        string guardian_info
         datetime created_at
         datetime updated_at
     }
@@ -96,7 +91,6 @@ erDiagram
     CHILD_CRECHE {
         int id PK
         int people_id FK
-        int people_responible_id FK
         date enrollment_date
         string group
         string medical_info
@@ -104,11 +98,20 @@ erDiagram
         datetime created_at
         datetime updated_at
     }
-        
+    
+    CAREGIVER {
+        int id PK
+        int people_id FK
+        string specialization
+        date start_date
+        string certification
+        datetime created_at
+        datetime updated_at
+    }
+    
     CHILD_RESPONSIBLE {
         int id PK
         int people_id FK
-        int[] child_id_list FK
         string relationship
         string authorization_level
         datetime created_at
@@ -118,7 +121,6 @@ erDiagram
     ELDERLY_CAREGIVER {
         int id PK
         int people_id FK
-        int[] care_of_elderly_id_list FK
         string specialization
         date start_date
         string certification
@@ -135,6 +137,6 @@ erDiagram
     PEOPLE ||--o{ BENEFICIARY : has_role
     PEOPLE ||--o{ ALUNO_CECOR : has_role
     PEOPLE ||--o{ CHILD_CRECHE : has_role
+    PEOPLE ||--o{ CAREGIVER : has_role
     PEOPLE ||--o{ CHILD_RESPONSIBLE : has_role
     PEOPLE ||--o{ ELDERLY_CAREGIVER : has_role
-```

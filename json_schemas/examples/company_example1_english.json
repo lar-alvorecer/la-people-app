@@ -1,0 +1,24 @@
+{
+  "cnpj": "12345678901234",
+  "legal_name": "Global Tech Solutions Ltd.",
+  "trade_name": "GTS",
+  "address": {
+    "street": "Main Street",
+    "number": "1000",
+    "postal_code": "04567890",
+    "street_type": "Avenue",
+    "neighborhood": "Downtown",
+    "city": "São Paulo",
+    "state": "SP",
+    "country": "Brazil"
+  },
+  "contact": {
+    "phone": "1133334444",
+    "email": "contact@gts-example.com",
+    "website": "https://www.gts-example.com"
+  },
+  "company_size": "Medium Business",
+  "registration_status": "Active",
+  "created_at": "15/06/2015",
+  "updated_at": "10/01/2023"
+}

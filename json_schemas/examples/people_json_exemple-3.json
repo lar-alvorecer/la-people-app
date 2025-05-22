@@ -1,0 +1,74 @@
+{
+    "cpf": "11122233344",
+    "first_name": "Pedro",
+    "last_name": "Santos",
+    "full_name": "Pedro Henrique Santos",
+    "birthday": "03/09/2015",
+    "contacts": {
+      "phones": [
+        {
+          "number": "1145678901",
+          "type": "residential"
+        }
+      ]
+    },
+    "endereco": {
+      "street_name": "Ipiranga",
+      "number": "1500",
+      "cep": "04299000",
+      "tipo_logradouro": "Avenida",
+      "neighborhood": "Ipiranga",
+      "zipcode": "04299000",
+      "state": "SP",
+      "country": "Brazil"
+    },
+    "membership_data": {
+      "mother": {
+        "name": "Juliana Santos",
+        "cpf": "33344455566",
+        "contacts": {
+          "cellphone": "11987654321",
+          "email": "juliana.santos@email.com"
+        }
+      },
+      "father": {
+        "name": "Ricardo Santos",
+        "cpf": "44455566677",
+        "contacts": {
+          "cellphone": "11976543210"
+        }
+      },
+      "responsable_person": {
+        "name": "Juliana Santos",
+        "kinship_degree": "mother",
+        "contacts": {
+          "cellphone": "11987654321",
+          "email": "juliana.santos@email.com"
+        }
+      }
+    },
+    "institution_relationships": {
+      "types": ["student_cecor", "odont"]
+    },
+    "emergency_contacts": [
+      {
+        "name": "Juliana Santos",
+        "relationship": "mother",
+        "cellphone": "11987654321"
+      },
+      {
+        "name": "Ricardo Santos",
+        "relationship": "father",
+        "cellphone": "11976543210"
+      },
+      {
+        "name": "Ana Oliveira",
+        "relationship": "grandmother",
+        "cellphone": "11965432109",
+        "phone": "1145678901"
+      }
+    ],
+    "created_at": "10/02/2023",
+    "updated_at": "10/02/2023"
+  }
+  
