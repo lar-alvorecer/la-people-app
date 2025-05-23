@@ -1,140 +1,43 @@
 # la-people-app
 
-```mermaid
-erDiagram
-    PEOPLE {
-        int id PK
-        string name
-        string mother_name
-        string father_name
-        string cpf
-        String rg
-        date birth_date
-        string gender
-        string address
-        string phone
-        string email
-        string photo_url
-        datetime created_at
-        datetime updated_at
-    }
-    
-    USER {
-        int id PK
-        int people_id FK
-        string username
-        string password_hash
-        string sys_role
-        boolean is_active
-        datetime created_at
-        datetime updated_at
-    }
-    
-    VOLUNTEER {
-        int id PK
-        int people_id FK
-        date start_date
-        string skills
-        string availability
-        string emergency_contact
-        datetime created_at
-        datetime updated_at
-    }
-    
-    BENEFICENT {
-        int id PK
-        int people_id FK
-        date first_donation_date
-        string donation_frequency
-        string donation_type
-        datetime created_at
-        datetime updated_at
-    }
-    
-    PROFESSIONAL {
-        int id PK
-        int people_id FK
-        date hire_date
-        string position
-        string department
-        string contract_type
-        decimal salary
-        datetime created_at
-        datetime updated_at
-    }
-    
-    TEACHER {
-        int id PK
-        int people_id FK
-        string specialization
-        string education_level
-        date start_date
-        datetime created_at
-        datetime updated_at
-    }
-    
-    BENEFICIARY {
-        int id PK
-        int people_id FK
-        int card_number
-        date enrollment_date
-        string needs
-        string program
-        datetime created_at
-        datetime updated_at
-    }
-    
-    ALUNO_CECOR {
-        int id PK
-        int people_id FK
-        date enrollment_date
-        string additional_info
-        datetime created_at
-        datetime updated_at
-    }
-    
-    CHILD_CRECHE {
-        int id PK
-        int people_id FK
-        int people_responible_id FK
-        date enrollment_date
-        string group
-        string medical_info
-        string allergies
-        datetime created_at
-        datetime updated_at
-    }
-        
-    CHILD_RESPONSIBLE {
-        int id PK
-        int people_id FK
-        int[] child_id_list FK
-        string relationship
-        string authorization_level
-        datetime created_at
-        datetime updated_at
-    }
-    
-    ELDERLY_CAREGIVER {
-        int id PK
-        int people_id FK
-        int[] care_of_elderly_id_list FK
-        string specialization
-        date start_date
-        string certification
-        string elderly_care_experience
-        datetime created_at
-        datetime updated_at
-    }
-    
-    PEOPLE ||--o{ USER : has_role
-    PEOPLE ||--o{ VOLUNTEER : has_role
-    PEOPLE ||--o{ BENEFICENT : has_role
-    PEOPLE ||--o{ PROFESSIONAL : has_role
-    PEOPLE ||--o{ TEACHER : has_role
-    PEOPLE ||--o{ BENEFICIARY : has_role
-    PEOPLE ||--o{ ALUNO_CECOR : has_role
-    PEOPLE ||--o{ CHILD_CRECHE : has_role
-    PEOPLE ||--o{ CHILD_RESPONSIBLE : has_role
-    PEOPLE ||--o{ ELDERLY_CAREGIVER : has_role
-```
+This app aims to take care a central registry of people and companies that have relationship with Lar do Alvorecer Institution (LA)
+
+Initialy it will be a fullstack app that will be used by the LA team to manage the people and companies that have relationship with the institution.
+The idea is to have a single source of truth for all the people and companies that have relationship with the institution.
+
+Initialy it will be deployes as containerized in a single server. Defined using docker-compose.yml file in My hotinger VPS server (hrbsys.tech).
+
+below some tech info about the project ans sugestions for future deployment:  
+
+## Tech Stack
+- [Next.js](https://nextjs.org/)
+- [React](https://reactjs.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Prisma](https://www.prisma.io/)
+- mongoDB
+- [Vercel](https://vercel.com/)
+## Getting Started
+First, run the development server:
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+```  
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Learn More
+To learn more about Next.js, take a look at the following resources:
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [ Learn Next.js](https://nextjs.org/learn) -
+an interactive Next.js tutorial.
+## Deploy on Vercel
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## License
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+## Contact
+If you have any questions or suggestions, please feel free to contact me at [hrugani@hrbsystems.com](mailto:hrugani@hrbsystems.com).
+
+
