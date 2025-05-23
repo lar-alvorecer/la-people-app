@@ -7,7 +7,7 @@ The idea is to have a single source of truth for all the people and companies th
 
 Initialy it will be deployes as containerized in a single server. Defined using docker-compose.yml file in My hotinger VPS server (hrbsys.tech).
 
-below some tech info about the project ans sugestions for future deployment:  
+below some tech info about the project and sugestions for future deployment:  
 
 ## Tech Stack
 - [Next.js](https://nextjs.org/)
