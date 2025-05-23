@@ -28,7 +28,7 @@ Mongoose: 8.x (for MongoDB ORM)
 Redis: 8.0.x
 ioredis: 5.x (Redis client for Node.js)
 Docker & Docker Compose: 2.x
-
+```text
 1. Project structure: 
 .
 ├── app/
@@ -73,6 +73,7 @@ Docker & Docker Compose: 2.x
 ├── package.json
 ├── tsconfig.json
 └── README.md  
+```
 
 2. Core implementation Details:  
 
@@ -1845,7 +1846,7 @@ ioredis: 5.x (Redis client for Node.js)
 Docker & Docker Compose: 2.x
 1. Project Structure
 The project structure remains largely the same, with updates to the Mongoose models and the addition of new form components.
-
+```text
 .
 ├── app/
 │   ├── api/
@@ -1889,6 +1890,8 @@ The project structure remains largely the same, with updates to the Mongoose mod
 ├── package.json
 ├── tsconfig.json
 └── README.md
+```  
+
 2. Core Implementation Details
 2.1. MongoDB Database and Mongoose Models (Updated with JSON Schemas)
 We'll update the Mongoose schemas and TypeScript interfaces to reflect the provided JSON schemas.
