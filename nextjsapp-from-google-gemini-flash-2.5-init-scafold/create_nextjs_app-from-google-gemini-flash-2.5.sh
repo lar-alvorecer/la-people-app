@@ -1,5 +1,11 @@
 #!/bin/bash
 
+echo "Creating project structure for nextjs-mongo-redis-app..."
+
+# Create root directory if it doesn't exist
+mkdir -p nextjs-mongo-redis-app
+cd nextjs-mongo-redis-app
+
 # --- Configuration ---
 PROJECT_ROOT=$(pwd) # Current directory will be the project root
 echo "Creating project structure in: $PROJECT_ROOT"
